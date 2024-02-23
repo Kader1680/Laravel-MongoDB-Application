@@ -15,7 +15,8 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mongodb'),
+
 
     /*
     |--------------------------------------------------------------------------
@@ -43,6 +44,22 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
+        'mongodbcloud' => [
+            'driver' => 'sqlite',
+            'dsn' => "mongodb+srv://laravelomongo:laravelomongo@cluster0.js1fnss.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+            'database' => 'laravelmongo',
+        ],
+        'mongodb' => [
+		    'driver'   => 'mongodb',
+		    'host'     => env('DB_HOST', 'localhost'),
+		    'port'     => env('DB_PORT', 27017),
+		    'database' => env('DB_DATABASE','laravelmongo'),
+		    'username' => env('DB_USERNAME','laravelomongo'),
+		    'password' => env('DB_PASSWORD','laravelomongo'),
+		    'options' => [
+		        'database' => 'admin' // sets the authentication database required by mongo 3
+		    ]
+],
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
@@ -90,6 +107,9 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
+
+
+
 
     ],
 
